@@ -117,6 +117,44 @@ A portion object has the following properties:
  * `indexInNode`: The index of the portion text within the node
 
 
+#### The `find` Option
+
+There are two major options here - specify a simple string, or specify a custom regular expression.  
+If you specify a regular expression (e.g. /myText/g), then you have full control of the search.  
+If you pass a string (e.g. myText) to the `find` option, a regular expression is assembled for you to globally search but to pay attention to case.  By specifying the wrapIgnoreCase option as true, it will also make this search case insensitive (e.g. as if specified as /myText/ig).
+
+E.g.
+
+*Input HTML*
+
+```html
+<div id="container">
+  Some verbiage that includes myString and mystring for me to find.
+</div>
+```
+
+*JS*
+
+```js
+findAndReplaceDOMText(document.getElementById('container'), {
+  find: 'myString',
+  wrap: 'em'
+});
+findAndReplaceDOMText(document.getElementById('container'), {
+  find: 'myString',
+  findIgnoreCase: true,
+  wrap: 'b'
+});
+```
+
+*Output HTML*
+
+```html
+<div id="container">
+  Some verbiage that includes <em><b>myString<b><em> and <b>mystring<b> for me to find.
+</div>
+```
+
 #### The `replace` Function
 
 If you pass a function to the `replace` option your function will be called on every portion of every match and is expected to return a DOM Node (a Text or Element node). Your function will be passed both the portion and the encapsulating match of that portion.
