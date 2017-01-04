@@ -79,6 +79,7 @@ The `options` object includes:
   * `$0` or `$&` to represent the entire match
   * <code>$`</code> to represent everything to the left of the match.
   * `$'` to represent everything to the right of the match.
+ * **findIgnoreCase** *optional* (`Boolean`): A true/false value to force the find: option (when built from a string) to be case insentitive in addition to being global.  If not specified, and the find: option is specified as a string, it will default to being a case sensitive search.  If the find: option is specified as a RegExp, this option is ignored since the full expression is being defined.
  * **wrap** *optional* (`String | Node`): A string representing the node-name of an element that will be wrapped around matches (e.g. `span` or `em`). Or a Node (i.e. a stencil node) that we will clone for each match portion.
  * **portionMode** *optional* (`String`, one of `"retain"` or `"first"`): Indicates whether to re-use existing node boundaries when replacing a match with text (i.e. the default, `"retain"`), or whether to instead place the entire replacement in the first-found match portion's node. *Most of the time you'll want the default*.
  * **filterElements** *optional* (`Function`): A function to be called on every element encountered by `findAndReplaceDOMText`. If the function returns false the element will be altogether ignored.
