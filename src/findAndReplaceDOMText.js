@@ -92,6 +92,7 @@
 	 *
 	 * @param {Node} node Element or Text node to search within
 	 * @param {RegExp} options.find The regular expression to match
+	 * @param {Boolean} options.findIgnoreCase Add the -i flag if building the regex
 	 * @param {String|Element} [options.wrap] A NodeName, or a Node to clone
 	 * @param {String|Function} [options.replace='$&'] What to replace each match with
 	 * @param {Function} [options.filterElements] A Function to be called to check whether to
@@ -191,11 +192,14 @@
 			var matchIndex = 0;
 			var offset = 0;
 			var regex = this.options.find;
+			var regexIgnoreCase = this.options.findIgnoreCase;
 			var textAggregation = this.getAggregateText();
 			var matches = [];
 			var self = this;
 
-			regex = typeof regex === 'string' ? RegExp(escapeRegExp(regex), 'g') : regex;
+			regex = typeof regex === 'string' ? 
+					RegExp(escapeRegExp(regex), regexIgnoreCase == true ? 'i' : '' + 'g') : 
+					regex;
 
 			matchAggregation(textAggregation);
 
