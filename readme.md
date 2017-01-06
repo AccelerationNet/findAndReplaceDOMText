@@ -74,7 +74,7 @@ findAndReplaceDOMText(
 The `options` object includes:
 
  * **find** (`RegExp | String`): Something to search for. A string will perform a global search by default (looking for all matches), but a RegExp will only do so if you include the global (`/.../g`) flag.
- * **findIgnoreCase** *optional* (`Boolean`): A true/false value to force the find: option (when built from a string) to be case insentitive in addition to being global.  If not specified, and the find: option is specified as a string, it will default to being a case sensitive search.  If the find: option is specified as a RegExp, this option is ignored since the full expression is being defined.
+ * **findIgnoreCase** *optional* (`Boolean`): A `true`/`false` value to force the `find` option (when built from a `String`) to be case insentitive in addition to being global.  If not specified, and the `find` option is specified as a `String`, it will default to being a case sensitive search.  If the `find` option is specified as a `RegExp`, this option is ignored since the full expression is being defined.
  * **replace** *optional* (`String | Function`): A String of text to replace matches with, or a Function which should return replacement Node or String. If you use a string, it can contain various tokens:
   * `$n` to represent the *n*th captured group of a regular expression (i.e. `$1`, `$2`, ...)
   * `$0` or `$&` to represent the entire match
